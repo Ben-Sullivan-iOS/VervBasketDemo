@@ -33,6 +33,10 @@ struct Basket {
         return (result * 100).rounded() / 100
     }
     
+    var totalPriceAndCurrencyString: String {
+        return "\(totalPrice) \(currency.uid)"
+    }
+    
     mutating func changeCurrency(to newCurrency: Currency) {
         currency = newCurrency
     }

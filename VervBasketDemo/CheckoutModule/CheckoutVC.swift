@@ -17,18 +17,23 @@ class CheckoutVC: UIViewController, CheckoutVCDelegate {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var totalPrice = "Total price: "
+    
     var model: CheckoutVCModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        totalPriceLabel.text = String(model!.basket.totalPrice)
+        if let price = model?.basket.totalPriceAndCurrencyString {
+            totalPriceLabel.text = totalPrice + price
+        }
     }
     
     func reloadData() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.totalPriceLabel.text = String(self.model!.basket.totalPrice)
-
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+            if let price = self?.model?.basket.totalPriceAndCurrencyString, let totalPrice = self?.totalPrice {
+                self?.totalPriceLabel.text = totalPrice + price
+            }
         }
     }
 }
