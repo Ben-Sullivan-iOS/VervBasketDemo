@@ -20,6 +20,33 @@ class BasketVC: UIViewController {
         selectProductVCDelegate?.basketUpdated(basket: model.basket)
         dismiss(animated: true)
     }
+    
+    @IBAction func checkoutTapped(_ sender: UIBarButtonItem) {
+        transitionToCheckoutScreen()
+    }
+    
+    func transitionToCheckoutScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+//        guard
+//            let navController = storyboard.instantiateViewController(withIdentifier: "BasketNavController") as? UINavigationController,
+//            let vc = navController.viewControllers.first as? BasketVC
+//            else {
+//                return
+//        }
+        
+        guard
+            let vc = storyboard.instantiateViewController(withIdentifier: "CheckoutVC") as? CheckoutVC,
+            let model = self.model
+            else {
+                return
+        }
+        
+        let checkoutVCModel = CheckoutVCModel(basket: model.basket)
+        vc.model = checkoutVCModel
+        checkoutVCModel.delegate = vc
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension BasketVC: UITableViewDataSource {
@@ -47,28 +74,5 @@ extension BasketVC: BasketVCType {
     func remove(product: Product) {
         model?.decreaseQuantity(product: product)
         tableView.reloadData()
-    }
-}
-
-protocol BasketVCModelType {
-    var basket: Basket { get }
-    mutating func increaseQuantity(product: Product)
-    mutating func decreaseQuantity(product: Product)
-}
-
-struct BasketVCModel: BasketVCModelType {
-    
-    var basket: Basket
-    
-    init(basket: Basket) {
-        self.basket = basket
-    }
-    
-    mutating func increaseQuantity(product: Product) {
-        basket.add(product: product)
-    }
-    
-    mutating func decreaseQuantity(product: Product) {
-        basket.decreaseQuantity(forProduct: product)
     }
 }

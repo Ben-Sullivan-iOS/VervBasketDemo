@@ -29,7 +29,7 @@ struct Basket {
     
     var totalPrice: Float {
         let euroTotal = items.reduce(0, { $0 + $1.product.price })
-        let result = Float(euroTotal) * currency.rate
+        let result = euroTotal * Float(currency.rate)
         return (result * 100).rounded() / 100
     }
     

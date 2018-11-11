@@ -12,7 +12,7 @@ struct CurrencyResult: Codable {
     let success: Bool
     let name: String
     let date: String
-    let currencies: [Currency]
+    let currencies: [String: Double]
     
     enum CodingKeys: String, CodingKey {
         case success
@@ -24,5 +24,5 @@ struct CurrencyResult: Codable {
 
 struct Currency: Codable {
     let uid: String
-    let rate: Float
+    let rate: Double
 }
