@@ -9,13 +9,15 @@
 import Foundation
 
 protocol SelectProductModelType {
-    var products: [Product] { get set }
     mutating func addToBasket(productIndex index: Int)
+    mutating func setNewBasket(_ basket: Basket)
+    var products: [Product] { get set }
+    var basket: Basket { get }
 }
 
 struct SelectProductModel: SelectProductModelType {
     
-    private var basket: Basket
+    private(set) var basket: Basket
     var products: [Product]
     
     init() {
@@ -32,6 +34,10 @@ struct SelectProductModel: SelectProductModelType {
         guard products.indices.contains(index) else { return }
         basket.add(product: products[index])
         print(basket)
+    }
+    
+    mutating func setNewBasket(_ basket: Basket) {
+        self.basket = basket
     }
     
 }

@@ -24,7 +24,7 @@ struct BasketItem {
 
 struct Basket {
     
-    private var items: [BasketItem] = []
+    private(set) var items: [BasketItem] = []
     private(set) var currency: Currency
     
     var totalPrice: Float {

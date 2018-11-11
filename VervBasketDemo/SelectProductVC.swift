@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SelectProductVCType: class {
+    func basketUpdated(basket: Basket)
+}
+
 class SelectProductVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,10 +23,33 @@ class SelectProductVC: UIViewController {
 
     }
 
+    //  TODO: move navigation logic to coordinator
     @IBAction func basketButtonTapped(_ sender: UIBarButtonItem) {
-        
+        transitionToBasket()
     }
     
+    func transitionToBasket() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard
+            let navController = storyboard.instantiateViewController(withIdentifier: "BasketNavController") as? UINavigationController,
+            let vc = navController.viewControllers.first as? BasketVC
+            else {
+                return
+        }
+        
+        let model = BasketVCModel(basket: self.model.basket)
+        vc.model = model
+        vc.selectProductVCDelegate = self
+        present(navController, animated: true)
+    }
+    
+}
+
+extension SelectProductVC: SelectProductVCType {
+    func basketUpdated(basket: Basket) {
+        model.setNewBasket(basket)
+    }
 }
 
 extension SelectProductVC: UITableViewDataSource {

@@ -58,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+            <point key="canvasLocation" x="852" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vbg-eC-spa">
@@ -77,6 +77,122 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgp-eF-C01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Basket-->
+        <scene sceneID="Gh6-rB-QxJ">
+            <objects>
+                <viewController storyboardIdentifier="BasketVC" id="AEy-1h-StA" customClass="BasketVC" customModule="VervBasketDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GY8-ux-KkS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DE-SL-apK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basketVCcell" id="Van-Kh-au8" customClass="BasketCell" customModule="VervBasketDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Van-Kh-au8" id="4rz-VI-Mmp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="78g-Po-82e">
+                                                    <rect key="frame" x="144.5" y="11.5" width="86" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrj-ag-Niw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nB-gY-JW9">
+                                                            <rect key="frame" x="25" y="0.0" width="61" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFh-64-uY8">
+                                                    <rect key="frame" x="16" y="5" width="30" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="addItemButtonTapped:" destination="Van-Kh-au8" eventType="touchUpInside" id="IJx-Xn-MQO"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Je-Ic-lPn">
+                                                    <rect key="frame" x="330" y="3" width="30" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <state key="normal" title="-"/>
+                                                    <connections>
+                                                        <action selector="removeItemButtonTapped:" destination="Van-Kh-au8" eventType="touchUpInside" id="d4M-Tn-qPP"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ZFh-64-uY8" secondAttribute="bottom" constant="5" id="Ee6-5b-aJZ"/>
+                                                <constraint firstItem="ZFh-64-uY8" firstAttribute="leading" secondItem="4rz-VI-Mmp" secondAttribute="leading" constant="16" id="m0Z-6X-dal"/>
+                                                <constraint firstItem="ZFh-64-uY8" firstAttribute="top" secondItem="4rz-VI-Mmp" secondAttribute="top" constant="5" id="n8n-OO-Oex"/>
+                                                <constraint firstItem="78g-Po-82e" firstAttribute="centerX" secondItem="4rz-VI-Mmp" secondAttribute="centerX" id="wbx-AB-ozm"/>
+                                                <constraint firstItem="78g-Po-82e" firstAttribute="centerY" secondItem="4rz-VI-Mmp" secondAttribute="centerY" id="zzU-cj-OZJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="productNameLabel" destination="6nB-gY-JW9" id="ZQG-2n-rZn"/>
+                                            <outlet property="quantityLabel" destination="xrj-ag-Niw" id="r8L-un-JGf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AEy-1h-StA" id="MXB-Z9-xai"/>
+                                    <outlet property="delegate" destination="AEy-1h-StA" id="1ht-AX-QkJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4DE-SL-apK" firstAttribute="bottom" secondItem="G0z-hv-Y27" secondAttribute="bottom" id="28r-ru-TJe"/>
+                            <constraint firstItem="4DE-SL-apK" firstAttribute="trailing" secondItem="G0z-hv-Y27" secondAttribute="trailing" id="Eiz-g1-ZNN"/>
+                            <constraint firstItem="4DE-SL-apK" firstAttribute="top" secondItem="GY8-ux-KkS" secondAttribute="top" id="IuF-9V-sTt"/>
+                            <constraint firstItem="4DE-SL-apK" firstAttribute="leading" secondItem="G0z-hv-Y27" secondAttribute="leading" id="ndQ-7g-nAX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G0z-hv-Y27"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Basket" id="hHM-Yi-pra">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="EsO-E5-HAr">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="AEy-1h-StA" id="OOY-8n-chN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="4DE-SL-apK" id="Pnx-qH-gbj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SuQ-PL-ZDe" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2494" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QoI-xc-u0d">
+            <objects>
+                <navigationController storyboardIdentifier="BasketNavController" automaticallyAdjustsScrollViewInsets="NO" id="JGL-a7-ebM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9P2-1o-q9P">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AEy-1h-StA" kind="relationship" relationship="rootViewController" id="6LO-HD-cPk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPE-G0-ijN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752.8" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
