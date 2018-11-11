@@ -33,7 +33,6 @@ struct SelectProductModel: SelectProductModelType {
         //  TODO: Add error handling
         guard products.indices.contains(index) else { return }
         basket.add(product: products[index])
-        print(basket)
     }
     
     mutating func setNewBasket(_ basket: Basket) {

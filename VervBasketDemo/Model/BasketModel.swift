@@ -10,8 +10,8 @@ import Foundation
 
 struct BasketItem {
     
-    let product: Product
-    var quantity: Int
+    private(set) var product: Product
+    private(set) var quantity: Int
     
     var price: Float {
         return product.price * Float(quantity)

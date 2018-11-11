@@ -26,14 +26,18 @@ extension NetworkService {
                 return
             }
             
-            do {
-                let currencyResult = try JSONDecoder().decode(CurrencyResult.self, from: data)
-                completion(Result.value(currencyResult))
-            } catch {
-                completion(Result.error(error))
-            }
+            self.decodeCurrencyData(data: data, completion: completion)
         }
         
         task.resume()
+    }
+    
+    func decodeCurrencyData(data: Data, completion: @escaping ResultBlock<CurrencyResult>) {
+        do {
+            let currencyResult = try JSONDecoder().decode(CurrencyResult.self, from: data)
+            completion(Result.value(currencyResult))
+        } catch {
+            completion(Result.error(error))
+        }
     }
 }
