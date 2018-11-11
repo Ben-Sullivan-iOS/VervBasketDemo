@@ -13,6 +13,10 @@ struct BasketItem {
     let product: Product
     var quantity: Int
     
+    var price: Float {
+        return product.price * Float(quantity)
+    }
+    
     mutating func increaseQuantity() {
         self.quantity += 1
     }
@@ -28,7 +32,7 @@ struct Basket {
     private(set) var currency: Currency
     
     var totalPrice: Float {
-        let euroTotal = items.reduce(0, { $0 + $1.product.price })
+        let euroTotal = items.reduce(0, { $0 + $1.price })
         let result = euroTotal * Float(currency.rate)
         return (result * 100).rounded() / 100
     }
