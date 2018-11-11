@@ -10,8 +10,10 @@ import UIKit
 
 class SelectProductVC: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var model: SelectProductModelType = SelectProductModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +32,8 @@ extension SelectProductVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "selectProductVCCell", for: indexPath)
-        cell.textLabel?.text = model.products[indexPath.row].name
+        let price = " : " + model.products[indexPath.row].priceString
+        cell.textLabel?.text = model.products[indexPath.row].name + price
         return cell
     }
 }
@@ -38,5 +41,6 @@ extension SelectProductVC: UITableViewDataSource {
 extension SelectProductVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.addToBasket(productIndex: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
