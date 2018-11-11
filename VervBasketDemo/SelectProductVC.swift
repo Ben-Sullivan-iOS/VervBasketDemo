@@ -9,15 +9,34 @@
 import UIKit
 
 class SelectProductVC: UIViewController {
+    
+    var model: SelectProductModelType = SelectProductModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
-
+    @IBAction func basketButtonTapped(_ sender: UIBarButtonItem) {
+        
+    }
+    
 }
 
-struct SelectProductModel {
+extension SelectProductVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selectProductVCCell", for: indexPath)
+        cell.textLabel?.text = model.products[indexPath.row].name
+        return cell
+    }
+}
 
+extension SelectProductVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        model.addToBasket(productIndex: indexPath.row)
+    }
 }

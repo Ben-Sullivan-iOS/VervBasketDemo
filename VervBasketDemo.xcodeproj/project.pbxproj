@@ -18,6 +18,7 @@
 		4845C91621983ECB00B60904 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4845C91521983ECB00B60904 /* CurrencyModel.swift */; };
 		4845C91921983EFF00B60904 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4845C91821983EFF00B60904 /* NetworkService.swift */; };
 		4845C91B21983F5700B60904 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4845C91A21983F5700B60904 /* Result.swift */; };
+		4845C91F2198445700B60904 /* SelectProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4845C91E2198445700B60904 /* SelectProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		4845C91521983ECB00B60904 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		4845C91821983EFF00B60904 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4845C91A21983F5700B60904 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4845C91E2198445700B60904 /* SelectProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4845C8F121983E6600B60904 /* AppDelegate.swift */,
-				4845C8F321983E6600B60904 /* SelectProductVC.swift */,
+				4845C91D2198443B00B60904 /* SelectProductModule */,
 				4845C91821983EFF00B60904 /* NetworkService.swift */,
 				4845C91C21983F6800B60904 /* Helpers */,
 				4845C91721983EE200B60904 /* Model */,
@@ -125,6 +127,15 @@
 				4845C91A21983F5700B60904 /* Result.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4845C91D2198443B00B60904 /* SelectProductModule */ = {
+			isa = PBXGroup;
+			children = (
+				4845C8F321983E6600B60904 /* SelectProductVC.swift */,
+				4845C91E2198445700B60904 /* SelectProductModel.swift */,
+			);
+			name = SelectProductModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 				4845C91221983E7800B60904 /* BasketModel.swift in Sources */,
 				4845C8F221983E6600B60904 /* AppDelegate.swift in Sources */,
 				4845C91B21983F5700B60904 /* Result.swift in Sources */,
+				4845C91F2198445700B60904 /* SelectProductModel.swift in Sources */,
 				4845C91921983EFF00B60904 /* NetworkService.swift in Sources */,
 				4845C91421983E9D00B60904 /* ProductModel.swift in Sources */,
 			);
@@ -399,6 +411,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SKZS94876;
 				INFOPLIST_FILE = VervBasketDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -406,7 +419,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FuturePlatforms.VervBasketDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -417,6 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SKZS94876;
 				INFOPLIST_FILE = VervBasketDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,7 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FuturePlatforms.VervBasketDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
