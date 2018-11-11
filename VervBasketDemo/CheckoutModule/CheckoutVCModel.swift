@@ -45,7 +45,6 @@ class CheckoutVCModel: CheckoutVCModelType, NetworkService {
                 })
                 
                 self.allCurrencies = tempCurrencies
-                
             case .error(let error):
                 dump(error)
             }

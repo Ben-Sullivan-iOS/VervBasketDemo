@@ -34,7 +34,7 @@ struct Basket {
     }
     
     var totalPriceAndCurrencyString: String {
-        return "\(totalPrice) \(currency.uid)"
+        return String(format: "%.2f", totalPrice) + " \(currency.uid)"
     }
     
     mutating func changeCurrency(to newCurrency: Currency) {

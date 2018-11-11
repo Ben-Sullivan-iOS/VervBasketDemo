@@ -24,7 +24,7 @@ struct SelectProductModel: SelectProductModelType {
         self.products = DummyDataCreator().createDummyProducts()
         
         //  TODO: Get initial currency from API and inject into model
-        let currency = Currency(uid: "GBP", rate: 0.873592)
+        let currency = Currency(uid: "EUR", rate: 1)
         basket = Basket(currency: currency)
         
     }
