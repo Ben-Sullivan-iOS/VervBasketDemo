@@ -16,7 +16,7 @@ class SelectProductVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var model: SelectProductModelType = SelectProductModel()
+    var model: SelectProductVCModelType = SelectProductVCModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol SelectProductModelType {
+protocol SelectProductVCModelType {
     mutating func addToBasket(productIndex index: Int)
     mutating func setNewBasket(_ basket: Basket)
     var products: [Product] { get set }
     var basket: Basket { get }
 }
 
-struct SelectProductModel: SelectProductModelType {
+struct SelectProductVCModel: SelectProductVCModelType {
     
     private(set) var basket: Basket
     var products: [Product]
